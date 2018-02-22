@@ -3,5 +3,5 @@
 *.py[cod]
 .env
 .pytest_cache/
-Dockerfile*
+Dockerfile.*
 ignore/
