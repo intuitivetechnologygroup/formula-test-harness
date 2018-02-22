@@ -2,7 +2,7 @@ FROM simplyadrian/allsalt:{{ image_tag }}
 
 ADD tests/ /srv/salt
 ADD tests/pillar/ /srv/pillar
-ADD . /srv/salt/{{ formula_name }}
+ADD {{ formula_name }} /srv/salt/{{ formula_name }}
 WORKDIR /srv/salt
 
 RUN sed -i "s/#master: salt/master: localhost/g" /etc/salt/minion

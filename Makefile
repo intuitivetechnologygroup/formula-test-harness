@@ -38,7 +38,8 @@ setup:
 
 clean:
 	find . -name '*.pyc' -exec rm '{}' ';'
-	rm -rf tests/Dockerfile*
+	rm -rf Dockerfile.*
+	rm -rf tests/Dockerfile.*
 	# delete pytest caches...
 	# rm -rf tests/pytests/*/.pytest_cache
 	# rm -rf tests/pytests/*/__pycache__
