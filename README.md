@@ -5,6 +5,7 @@
 * [Testing](#testing)
 * [Components](#components)
 
+---
 
 **Assumptions:**
 
