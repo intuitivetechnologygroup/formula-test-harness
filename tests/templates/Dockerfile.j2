@@ -1,0 +1,15 @@
+FROM simplyadrian/allsalt:{{ image_tag }}
+
+ADD tests/ /srv/salt
+ADD tests/pillar/ /srv/pillar
+ADD . /srv/salt/authconfig
+WORKDIR /srv/salt
+
+RUN sed -i "s/#master: salt/master: localhost/g" /etc/salt/minion
+
+{%- if 'centos' not in image_tag %}
+RUN apt-get update && \
+    apt-get install -y python-pip
+{% endif %}
+
+RUN pip install pytest
