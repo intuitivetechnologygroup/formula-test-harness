@@ -33,8 +33,15 @@ define run_local
 endef
 
 # ---------------------------------------------------------------
-test-setup:
+setup:
 	pip install Jinja2
+
+clean:
+	find . -name '*.pyc' -exec rm '{}' ';'
+	rm -rf tests/Dockerfile*
+	# delete pytest caches...
+	# rm -rf tests/pytests/*/.pytest_cache
+	# rm -rf tests/pytests/*/__pycache__
 
 # --- centos_master_2017.7.2 ------------------------------------
 test-centos_master_2017.7.2: clean
