@@ -2,8 +2,10 @@
 
 * [Install](#install)
 * [Configuration](#configuration)
-* [Testing](#testing)
 * [Components](#components)
+* [Testing](#testing)
+  - [Run Tests](#run-tests)
+  - [Run Containers](#run-containers)
 
 ---
 
@@ -27,7 +29,20 @@ FORMULA_NAME = "my-formula"
 ````
 
 
+## <a name='components'></a> Components
+
+### Dockerfile Template
+
+Rendering a dockerfile:
+
+```bash
+python tools/filltmpl.py {formula-name} {image-tag}
+```
+
+
 ## <a name='testing'></a> Testing
+
+### <a name='run-tests'></a> Run Tests
 
 Tests will be run on the following base images:
 
@@ -36,7 +51,7 @@ Tests will be run on the following base images:
 * `simplyadrian/allsalt:ubuntu_master_2017.7.2`
 * `simplyadrian/allsalt:ubuntu_master_2016.11.3`
 
-#### Start a virtualenv
+##### Start a virtualenv
 
 ```bash
 pip install -U virtualenv
@@ -44,33 +59,22 @@ virtualenv .venv
 source .venv/bin/activate
 ```
 
-#### Install local requirements
+##### Install local requirements
 
 ```bash
 make setup
 ```
 
-### Run tests
+#### Run tests
 
 * `make test-centos_master_2017.7.2`
 * `make test-debian_master_2017.7.2`
 * `make test-ubuntu_master_2017.7.2`
 * `make test-ubuntu_master_2016.11.3`
 
-### Run local containers
+### <a name='run-containers'></a> Run Containers
 
 * `make local-centos_master_2017.7.2`
 * `make local-debian_master_2017.7.2`
 * `make local-ubuntu_master_2017.7.2`
 * `make local-ubuntu_master_2016.11.3`
-
-
-## <a name='components'></a> Components
-
-### Dockerfile Template
-
-Rendering a dockerfile:
-
-```bash
-python tests/filltmpl.py {formula-name} {image-tag}
-```

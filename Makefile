@@ -3,19 +3,19 @@ PWD = $(shell pwd)
 
 # ---------------------------------------------------------------
 define render_dockerfile
-	python $(PWD)/tests/filltmpl.py $(FORMULA_NAME) $(1)
+	python $(PWD)/tools/filltmpl.py $(FORMULA_NAME) $(1)
 endef
 
 define docker_build
-	docker build --force-rm -t $(FORMULA_NAME):salt-testing-$(1) -t $(FORMULA_NAME):local-salt-testing-$(1) -f Dockerfile.$(1) .
+	docker build --force-rm -t $(FORMULA_NAME):salt-testing-$(1) -f Dockerfile.$(1) .
 endef
 
 define docker_run_local
-	docker run --rm -v $(PWD):/opt/$(FORMULA_NAME)-formula --env=STAGE=TEST -h local-salt-testing-$(1) --name local-salt-testing-$(1) -it $(FORMULA_NAME):local-salt-testing-$(1) /bin/bash
+	docker run --rm -v $(PWD):/opt/$(FORMULA_NAME)-formula --env=STAGE=TEST -h salt-testing-$(1) --name salt-testing-$(1) -it $(FORMULA_NAME):salt-testing-$(1) /bin/bash
 endef
 
 define run_tests
-	cd $(PWD)/tests && ./run-tests.sh $(1)
+	./tools/run-tests.sh $(FORMULA_NAME) $(1)
 endef
 
 # --- convenience functions -------------------------------------

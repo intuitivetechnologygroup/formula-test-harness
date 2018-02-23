@@ -3,5 +3,6 @@
 *.py[cod]
 .env
 .pytest_cache/
+__pycache__/
 Dockerfile.*
 ignore/

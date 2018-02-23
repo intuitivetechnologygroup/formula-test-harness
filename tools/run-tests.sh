@@ -16,6 +16,6 @@ function docker-run-pytest() {
         pytest -sv /opt/tests
 }
 
-for i in $(find /opt/$FORMULA_NAME/tests/pytests/* -maxdepth 0 -type d); do
+for i in $(find $PWD/tests/pytests/* -maxdepth 0 -type d); do
     docker-run-pytest $i;
 done
