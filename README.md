@@ -2,10 +2,10 @@
 
 * [Install](#install)
 * [Configuration](#configuration)
-* [Components](#components)
 * [Testing](#testing)
   - [Run Tests](#run-tests)
   - [Run Containers](#run-containers)
+* [Components](#components)
 
 ---
 
@@ -27,17 +27,6 @@ Update the `FORMULA_NAME` variable in the `Makefile`:
 ````
 FORMULA_NAME = "my-formula"
 ````
-
-
-## <a name='components'></a> Components
-
-### Dockerfile Template
-
-Rendering a dockerfile:
-
-```bash
-python tools/filltmpl.py {formula-name} {image-tag}
-```
 
 
 ## <a name='testing'></a> Testing
@@ -78,3 +67,14 @@ make setup
 * `make local-debian_master_2017.7.2`
 * `make local-ubuntu_master_2017.7.2`
 * `make local-ubuntu_master_2016.11.3`
+
+
+## <a name='components'></a> Components
+
+### Dockerfile Template
+
+Rendering a dockerfile:
+
+```bash
+python tools/filltmpl.py {formula-name} {image-tag}
+```
