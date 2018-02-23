@@ -94,7 +94,7 @@ source .venv/bin/activate
 make setup
 ```
 
-#### Run tests
+##### Run tests
 
 * `make test-centos_master_2017.7.2`
 * `make test-debian_master_2017.7.2`
