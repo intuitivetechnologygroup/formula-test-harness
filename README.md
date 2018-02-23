@@ -1,7 +1,7 @@
 # Salt Formula Test Harness
 
 * [Install](#install)
-  - [Test Structure](#test-structure)
+  - [Project File Structure](#file-structure)
 * [Configuration](#configuration)
 * [Testing](#testing)
   - [Run Tests](#run-tests)
@@ -41,22 +41,32 @@ cp tmp/formula-test-harness/tests/srv/salt/top.sls tests/srv/salt/top.sls
 sed -i '' 's/example/formula-name/' top.sls
 ```
 
-### <a name='test-structure'></a> Test Structure
+### <a name='file-structure'></a> Project File Structure
 
 ````
 .
-└── tests
-    ├── pytests
-    │   └── apply-all-tests
-    │       ├── __init__.py
-    │       └── test_000_apply_state.py
-    └── srv
-        ├── pillar
-        │   ├── example
-        │   │   └── init.sls
-        │   └── top.sls
-        └── salt
-            └── top.sls
+├── example
+│   ├── init.sls
+│   └── pkg.sls
+├── tests
+│   ├── pytests
+│   │   └── apply-all-tests
+│   │       ├── __init__.py
+│   │       └── test_000_apply_state.py
+│   └── srv
+│       ├── pillar
+│       │   ├── example
+│       │   │   └── init.sls
+│       │   └── top.sls
+│       └── salt
+│           └── top.sls
+├── tools
+│   ├── templates
+│   │   └── Dockerfile.j2
+│   ├── filltmpl.py
+│   └── run-tests.sh
+├── .travis.yml
+└── Makefile
 ````
 
 
