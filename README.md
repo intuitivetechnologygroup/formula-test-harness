@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/intuitivetechnologygroup/formula-test-harness.svg?branch=master)](https://travis-ci.org/intuitivetechnologygroup/formula-test-harness)
+
 # Salt Formula Test Harness
 
 * [Install](#install)
@@ -32,13 +34,18 @@ Merge the files if they already exist in the project.
 
 ```bash
 cd /path/to/project
-cp tmp/formula-test-harness/.travis.yml .travis.yml
-cp tmp/formula-test-harness/Makefile Makefile
 cp -r tmp/formula-test-harness/tools tools
 mkdir -p tests/srv/salt
 cp -r tmp/formula-test-harness/tests/pytests tests/pytests
+
+cp tmp/formula-test-harness/.travis.yml .travis.yml
+sed -i '' 's/example/formula-name/' .travis.yml
+
+cp tmp/formula-test-harness/Makefile Makefile
+sed -i '' 's/example/formula-name/' Makefile
+
 cp tmp/formula-test-harness/tests/srv/salt/top.sls tests/srv/salt/top.sls
-sed -i '' 's/example/formula-name/' top.sls
+sed -i '' 's/example/formula-name/' tests/srv/salt/top.sls
 ```
 
 ### <a name='file-structure'></a> Project File Structure

@@ -1,3 +1,3 @@
-vim:
+install-vim:
   pkg.installed:
-    - name: {{ salt['pillar.get']('example.package') }}
+    - name: {{ pillar['example']['package'] }}

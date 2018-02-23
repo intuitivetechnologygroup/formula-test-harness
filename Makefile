@@ -1,4 +1,4 @@
-FORMULA_NAME = "<FORMULA_NAME>"
+FORMULA_NAME = "example"
 PWD = $(shell pwd)
 
 # ---------------------------------------------------------------
