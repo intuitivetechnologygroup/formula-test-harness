@@ -1,6 +1,7 @@
 # Salt Formula Test Harness
 
 * [Install](#install)
+  - [Test Structure](#test-structure)
 * [Configuration](#configuration)
 * [Testing](#testing)
   - [Run Tests](#run-tests)
@@ -17,7 +18,46 @@
 
 ## <a name='install'></a> Install
 
-[placeholder]
+##### Clone this repository:
+
+```bash
+cd /path/to/project
+mkdir -p tmp/formula-test-harness
+git clone git@github.com:intuitivetechnologygroup/formula-test-harness.git tmp/formula-test-harness
+```
+
+##### Copy essentials:
+
+Merge the files if they already exist in the project.
+
+```bash
+cd /path/to/project
+cp tmp/formula-test-harness/.travis.yml .travis.yml
+cp tmp/formula-test-harness/Makefile Makefile
+cp -r tmp/formula-test-harness/tools tools
+mkdir -p tests/srv/salt
+cp -r tmp/formula-test-harness/tests/pytests tests/pytests
+cp tmp/formula-test-harness/tests/srv/salt/top.sls tests/srv/salt/top.sls
+sed -i '' 's/example/formula-name/' top.sls
+```
+
+### <a name='test-structure'></a> Test Structure
+
+````
+.
+└── tests
+    ├── pytests
+    │   └── apply-all-tests
+    │       ├── __init__.py
+    │       └── test_000_apply_state.py
+    └── srv
+        ├── pillar
+        │   ├── example
+        │   │   └── init.sls
+        │   └── top.sls
+        └── salt
+            └── top.sls
+````
 
 
 ## <a name='configuration'></a> Configuration

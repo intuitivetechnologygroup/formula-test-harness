@@ -42,6 +42,8 @@ clean:
 	# delete pytest caches...
 	# rm -rf tests/pytests/*/.pytest_cache
 	# rm -rf tests/pytests/*/__pycache__
+	rm -rf tests/pytests/apply-all-tests/.pytest_cache
+	rm -rf tests/pytests/apply-all-tests/__pycache__
 
 # --- centos_master_2017.7.2 ------------------------------------
 test-centos_master_2017.7.2: clean
