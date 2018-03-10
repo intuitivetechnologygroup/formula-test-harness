@@ -1,6 +1,6 @@
 FROM simplyadrian/allsalt:{{ image_tag }}
 
-{% if 'centos' not in image_tag -%}
+{% if 'debian' in image_tag or 'ubuntu' in image_tag -%}
 RUN apt-get update && \
     apt-get install -y python-pip
 {% endif %}

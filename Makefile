@@ -58,12 +58,12 @@ test-debian_master_2017.7.2: clean
 local-debian_master_2017.7.2: clean
 	$(call run_local,debian_master_2017.7.2)
 
-# --- ubuntu_master_2017.7.2 ------------------------------------
-test-ubuntu_master_2017.7.2: clean
-	$(call run_local_tests,ubuntu_master_2017.7.2)
+# --- opensuse_master_2017.7.2 ------------------------------------
+test-opensuse_master_2017.7.2: clean
+	$(call run_local_tests,opensuse_master_2017.7.2)
 
-local-ubuntu_master_2017.7.2: clean
-	$(call run_local,ubuntu_master_2017.7.2)
+local-opensuse_master_2017.7.2: clean
+	$(call run_local,opensuse_master_2017.7.2)
 
 # --- ubuntu_master_2016.11.3 ------------------------------------
 test-ubuntu_master_2016.11.3: clean
@@ -71,3 +71,10 @@ test-ubuntu_master_2016.11.3: clean
 
 local-ubuntu_master_2016.11.3: clean
 	$(call run_local,ubuntu_master_2016.11.3)
+
+# --- ubuntu_master_2017.7.2 ------------------------------------
+test-ubuntu_master_2017.7.2: clean
+	$(call run_local_tests,ubuntu_master_2017.7.2)
+
+local-ubuntu_master_2017.7.2: clean
+	$(call run_local,ubuntu_master_2017.7.2)
