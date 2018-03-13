@@ -6,3 +6,5 @@
 __pycache__/
 Dockerfile.*_*
 ignore/
+.venv/
+tmp/
