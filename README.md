@@ -24,8 +24,8 @@
 
 ```bash
 cd /path/to/project
-mkdir -p tmp/formula-test-harness
-git clone git@github.com:intuitivetechnologygroup/formula-test-harness.git tmp/formula-test-harness
+mkdir tmp
+git clone https://github.com/intuitivetechnologygroup/formula-test-harness.git tmp/formula-test-harness
 ```
 
 ##### Copy essentials:
@@ -34,18 +34,20 @@ Merge the files if they already exist in the project.
 
 ```bash
 cd /path/to/project
-cp -r tmp/formula-test-harness/tools tools
 mkdir -p tests/srv/salt
+
+cp -r tmp/formula-test-harness/tools tools
 cp -r tmp/formula-test-harness/tests/pytests tests/pytests
+cp tmp/formula-test-harness/.gitignore .gitignore
 
 cp tmp/formula-test-harness/.travis.yml .travis.yml
-sed -i '' 's/example/formula-name/' .travis.yml
+sed -i '' 's/example/FORMULA-NAME/' .travis.yml
 
 cp tmp/formula-test-harness/Makefile Makefile
-sed -i '' 's/example/formula-name/' Makefile
+sed -i '' 's/example/FORMULA-NAME/' Makefile
 
 cp tmp/formula-test-harness/tests/srv/salt/top.sls tests/srv/salt/top.sls
-sed -i '' 's/example/formula-name/' tests/srv/salt/top.sls
+sed -i '' 's/example/FORMULA-NAME/' tests/srv/salt/top.sls
 ```
 
 ### <a name='file-structure'></a> Project File Structure
@@ -72,6 +74,7 @@ sed -i '' 's/example/formula-name/' tests/srv/salt/top.sls
 │   │   └── Dockerfile.j2
 │   ├── filltmpl.py
 │   └── run-tests.sh
+├── .gitignore
 ├── .travis.yml
 └── Makefile
 ````
