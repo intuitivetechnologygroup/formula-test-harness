@@ -12,7 +12,9 @@
 
 ---
 
-**Assumptions:**
+Run as many pytest suites that you need to run in a clean, isolated environment.
+
+#### Assumptions:
 
 `make` is on your system and available. If it is not or you are not sure what
 `make` is, [this](https://www.gnu.org/software/make/) is a good place to start.
@@ -78,6 +80,13 @@ sed -i '' 's/example/FORMULA-NAME/' tests/srv/salt/top.sls
 ├── .travis.yml
 └── Makefile
 ````
+
+### pytests
+
+* Create your test sequences in `tests/pytests/`.
+* The file structures should be setup the same way as any other python unit tests.
+* Each test suite is essentially it's own python package so it must contain an `__init__.py` file.
+* All test files must be in prefixed with `test_`.
 
 
 ## <a name='configuration'></a> Configuration
