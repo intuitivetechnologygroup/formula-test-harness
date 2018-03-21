@@ -172,3 +172,13 @@ Rendering a dockerfile:
 ```bash
 python tools/filltmpl.py {formula-name} {image-tag}
 ```
+
+
+## Contributing
+
+Contributions are welcome!
+
+Review the [Contributing Guidelines](https://github.com/intuitivetechnologygroup/formula-test-harness/blob/master/CONTRIBUTING.md) for details on how to:
+
+* Submit issues
+* Submit pull requests
