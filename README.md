@@ -1,14 +1,16 @@
 [![Build Status](https://travis-ci.org/intuitivetechnologygroup/formula-test-harness.svg?branch=master)](https://travis-ci.org/intuitivetechnologygroup/formula-test-harness)
 
-# Salt Formula Test Harness
+# <a name='documentation'></a> Salt Formula Test Harness
 
-* [Install](#install)
+* [Project Setup](#project-setup)
   - [Project File Structure](#file-structure)
 * [Configuration](#configuration)
 * [Testing](#testing)
   - [Run Tests](#run-tests)
-  - [Run Containers](#run-containers)
+  - [Run Interactive Containers](#run-containers)
+  - [Continuous Integration](#ci)
 * [Components](#components)
+* [Contributing](#contributing)
 
 ---
 
@@ -20,7 +22,7 @@ Run as many pytest suites that you need to run in a clean, isolated environment.
 `make` is, [this](https://www.gnu.org/software/make/) is a good place to start.
 
 
-## <a name='install'></a> Install
+## <a name='project-setup'></a> Project Setup
 
 ##### Clone this repository:
 
@@ -33,6 +35,7 @@ git clone https://github.com/intuitivetechnologygroup/formula-test-harness.git t
 ##### Copy essentials:
 
 Merge the files if they already exist in the project.
+Replace `FORMULA-NAME` with the name of your formula.
 
 ```bash
 cd /path/to/project
@@ -89,16 +92,44 @@ sed -i '' 's/example/FORMULA-NAME/' tests/srv/salt/top.sls
 * All test files must be in prefixed with `test_`.
 
 
-## <a name='configuration'></a> Configuration
+## <a name='development'></a> Development
 
-Update the `FORMULA_NAME` variable in the `Makefile`:
+### <a name='dev-setup'></a> Setup
 
-````
-FORMULA_NAME = "my-formula"
-````
+**Start a virtualenv**
+
+```bash
+pip install -U virtualenv
+virtualenv .venv
+source .venv/bin/activate
+```
+
+**Install local requirements**
+
+```bash
+make setup
+```
+
+### <a name='dev-utility-implementations'></a> Utility Implementations
+
+#### Tool Configuration
+
+##### `./tools/templates/Dockerfile.j2`
+
+Add any package installation requirements here.
+
+##### `./tools/run-tests.sh`
+
+Add the shell commands to run the tests here.
+
+#### Execution Files
+
+The tooling config/execution files should be placed under `./tests/<util-name>/*`
 
 
 ## <a name='testing'></a> Testing
+
+First, follow the [Development Setup](#dev-setup) instructions.
 
 ### <a name='run-tests'></a> Run Tests
 
@@ -110,21 +141,7 @@ Tests will be run on the following base images:
 * `simplyadrian/allsalt:ubuntu_master_2016.11.3`
 * `simplyadrian/allsalt:ubuntu_master_2017.7.2`
 
-##### Start a virtualenv
-
-```bash
-pip install -U virtualenv
-virtualenv .venv
-source .venv/bin/activate
-```
-
-##### Install local requirements
-
-```bash
-make setup
-```
-
-##### Run tests
+##### Run the tests
 
 * `make test-centos_master_2017.7.2`
 * `make test-debian_master_2017.7.2`
@@ -132,13 +149,19 @@ make setup
 * `make test-ubuntu_master_2016.11.3`
 * `make test-ubuntu_master_2017.7.2`
 
-### <a name='run-containers'></a> Run Containers
+### <a name='run-containers'></a> Run Interactive Containers
 
 * `make local-centos_master_2017.7.2`
 * `make local-debian_master_2017.7.2`
 * `make local-opensuse_master_2017.7.2`
 * `make local-ubuntu_master_2016.11.3`
 * `make local-ubuntu_master_2017.7.2`
+
+### <a name='ci'></a> Continuous Integration
+
+[![Build Status](https://travis-ci.org/intuitivetechnologygroup/formula-test-harness.svg?branch=master)](https://travis-ci.org/intuitivetechnologygroup/formula-test-harness)
+
+Continuous integration details are available on [Travis CI](https://travis-ci.org/intuitivetechnologygroup/formula-test-harness).
 
 
 ## <a name='components'></a> Components
@@ -150,3 +173,13 @@ Rendering a dockerfile:
 ```bash
 python tools/filltmpl.py {formula-name} {image-tag}
 ```
+
+
+## <a name='contributing'></a> Contributing
+
+Contributions are welcome!
+
+Review the [Contributing Guidelines](https://github.com/intuitivetechnologygroup/formula-test-harness/blob/master/CONTRIBUTING.md) for details on how to:
+
+* Submit issues
+* Submit pull requests
