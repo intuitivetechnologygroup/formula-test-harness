@@ -10,7 +10,7 @@
   - [Run Interactive Containers](#run-containers)
   - [Continuous Integration](#ci)
 * [Components](#components)
-* [Contributing](#Contributing)
+* [Contributing](#contributing)
 
 ---
 
