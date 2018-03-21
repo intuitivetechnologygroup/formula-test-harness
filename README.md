@@ -10,6 +10,7 @@
   - [Run Interactive Containers](#run-containers)
   - [Continuous Integration](#ci)
 * [Components](#components)
+* [Contributing](#Contributing)
 
 ---
 
@@ -174,7 +175,7 @@ python tools/filltmpl.py {formula-name} {image-tag}
 ```
 
 
-## Contributing
+## <a name='contributing'></a> Contributing
 
 Contributions are welcome!
 
