@@ -1,6 +1,8 @@
-[![Build Status](https://travis-ci.org/intuitivetechnologygroup/formula-test-harness.svg?branch=master)](https://travis-ci.org/intuitivetechnologygroup/formula-test-harness)
-
 # <a name='documentation'></a> Salt Formula Test Harness
+
+Run as many pytest suites that you need to run in a clean, isolated environment.
+
+[![Build Status](https://travis-ci.org/intuitivetechnologygroup/formula-test-harness.svg?branch=master)](https://travis-ci.org/intuitivetechnologygroup/formula-test-harness)
 
 * [Project Setup](#project-setup)
   - [Project File Structure](#file-structure)
@@ -13,8 +15,6 @@
 * [Contributing](#contributing)
 
 ---
-
-Run as many pytest suites that you need to run in a clean, isolated environment.
 
 #### Assumptions:
 
